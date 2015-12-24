@@ -10,7 +10,7 @@ console.log("Ch4t client started");
 
 var username = "kek";
 var util = require('util');
-var socket = require("socket.io-client")("https://ch4t.io/dev");
+var socket = require("socket.io-client")("https://ch4t.io/");
 var Backbone = require("backbone");
 var CLIENT, ONLINE;
 
