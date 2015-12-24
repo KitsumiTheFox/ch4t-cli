@@ -8,11 +8,9 @@
 /* Initialization */
 console.log("Ch4t client started");
 
-var username = "kek";
-var util = require('util');
 var socket = require("socket.io-client")("https://ch4t.io/");
-var Backbone = require("backbone");
-var CLIENT, ONLINE;
+/*var Backbone = require("backbone");
+var CLIENT, ONLINE;*/
 
 console.log("Socket initialized, opened");
 
@@ -20,11 +18,10 @@ console.log("Socket initialized, opened");
 /* Real shit */
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-var util = require('util');
 
 process.stdin.on('data', function (text) {
 	socket.emit('message', {
-		flair : username,
+		flair : "",
 		message : text
 	});
 });
@@ -32,11 +29,13 @@ process.stdin.on('data', function (text) {
 socket.on("connect", function() {
 	console.log("Connected!");
 	socket.emit('join', {
-		nick : username,
+		nick : "",
 		security : ""
 	});
+/* These are not currently being used
 	ONLINE = new Backbone.Collection();
-	CLIENT = (new Backbone.Model.extend());
+	CLIENT = (new Backbone.Model.extend()); 
+*/
 });
 
 socket.on('alive', function() {
