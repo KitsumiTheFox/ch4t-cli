@@ -10,7 +10,7 @@ A CLI client for http://ch4t.io/ using Node.js.
 
 ```bash
 $ git clone https://github.com/DoomsdayMuffinz/ch4t-cli.git
-$ cd ch4t-cli.git
+$ cd ch4t-cli
 $ npm install 
 $ node client.js
 ```
