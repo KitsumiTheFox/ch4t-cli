@@ -28,12 +28,23 @@ function print(data, type) {
 	console.log(time + " " + data);
 }
 // Handle input
+function parse(data) {
+	data = data.replace(/\n$/, "");
+	if (data.indexOf("/")) {
+		socket.emit('message', { message: data });
+		return;
+	}
+	var command = data.substring(1);
+	if(command.match(/\s*topic\s*/i))
+		socket.emit('message', { message: '/get topic' });
+	
+	return;
+}
+		
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', function (text) {
-	socket.emit('message', {
-		message : text
-	});
+	parse(text);
 });
 
 // Show messages
